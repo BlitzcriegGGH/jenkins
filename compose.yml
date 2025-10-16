@@ -1,0 +1,21 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:2.528.1-lts-jdk21
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "5000:5000"
+    networks:
+      - applications-network
+
+networks:
+  applications-network:
+    name: applications-network
+    external: true
+
+# docker exec -it jenkins bash
+
+# Mon mot de passe admin pour docker desc
+# jenkins@09e661961fbd:/$ cat /var/jenkins_home/secrets/initialAdminPassword
+# 83f39297927a41ebb2a625ca3fe82db9
+
