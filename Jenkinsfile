@@ -4,17 +4,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                checkout({
+                checkout([
                     $class: 'GitSCM',
                     branches: [[name: '*/main']],
-                    doGenerateSubmoduleConfigurations: false,
-                    extensions: [],
-                    submoduleCfg: [],
                     userRemoteConfigs: [[
                         credentialsId: 'MACLEOHSECOURS',
                         url: 'https://github.com/BlitzcriegGGH/jenkins.git'
                     ]]
-                })
+                ])
                 echo 'Building...'
             }
         }
