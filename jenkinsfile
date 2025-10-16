@@ -4,12 +4,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                git branch "main", url: 'https://github.com/BlitzcriegGGH/jenkins.git'
                 echo 'Building...'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
+                sh 'cat servers.csv'
             }
         }
         stage('Deploy') {
