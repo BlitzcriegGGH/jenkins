@@ -19,9 +19,12 @@ pipeline {
         stage('Readfile and print its content') {
             steps {
                 echo 'Reading file... and Ready to print its content'
-                def lines = Readfile('servers.csv')
-                lines.each { line ->
-                    echo line
+                script {
+                    def content = readFile 'servers.csv'
+                    def lines = content.split(/\r?\n/)
+                    lines.each { line ->
+                        echo line
+                    }
                 }
             }
         }
