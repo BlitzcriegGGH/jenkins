@@ -16,6 +16,13 @@ pipeline {
             }
         }
 
+        stage('Readfile and print its content') {
+            steps {
+                echo 'Reading file... and Ready to print its content'
+                
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building...'
